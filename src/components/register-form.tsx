@@ -30,11 +30,9 @@ export function RegisterForm({ className, ...props }: React.ComponentPropsWithou
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-  
-      // Actualiza el perfil del usuario con el nombre
       await updateProfile(user, { displayName: name });
   
-      router.push("/login"); // Redirige al login después del registro exitoso
+      router.push("/login");
     } catch (err) {
       setError("Error al registrar la cuenta. Inténtalo de nuevo.");
     }
