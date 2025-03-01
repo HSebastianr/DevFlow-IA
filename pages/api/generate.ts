@@ -18,7 +18,7 @@ export default async function handler(
 
   try {
     const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
+      "https://codestral.mistral.ai/v1/chat/completions",
       {
         method: "POST",
         headers: {
@@ -26,7 +26,7 @@ export default async function handler(
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
         },
         body: JSON.stringify({
-          model: "google/gemini-2.0-flash-lite-preview-02-05:free",
+          model: "codestral-latest",
           messages: [{ role: "user", content: description }],
           max_tokens: 10000,
         }),
